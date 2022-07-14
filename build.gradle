@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+group 'com.ia.cobol'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    implementation group: 'com.jfoenix', name: 'jfoenix', version: '9.0.10'
+    // https://mvnrepository.com/artifact/de.jensd/fontawesomefx-materialdesignfont
+    implementation group: 'de.jensd', name: 'fontawesomefx-materialdesignfont', version: '2.0.26-9.1.2'
+    // https://mvnrepository.com/artifact/de.jensd/fontawesomefx-commons
+    implementation group: 'de.jensd', name: 'fontawesomefx-commons', version: '9.1.2'
+    // https://mvnrepository.com/artifact/de.jensd/fontawesomefx-fontawesome
+    implementation group: 'de.jensd', name: 'fontawesomefx-fontawesome', version: '4.7.0-9.1.2'
+    // https://mvnrepository.com/artifact/org.controlsfx/controlsfx
+    implementation group: 'org.controlsfx', name: 'controlsfx', version: '11.1.0'
+    
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+javafx {
+    version = "11.0.2"
+    modules = [ 'javafx.controls', 'javafx.fxml']
+}
+application{
+    mainClassName = "com.ia.cobol.Launcher"
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.ia.cobol.Launcher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+test {
+    useJUnitPlatform()
+}

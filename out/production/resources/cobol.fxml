@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="mainAnchor" prefHeight="400.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ia.cobol.controller.CobolController">
+    <BorderPane prefHeight="400.0" prefWidth="740.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <top>
+            <AnchorPane prefHeight="30.0" prefWidth="740.0" BorderPane.alignment="CENTER">
+                <GridPane prefHeight="40.0" prefWidth="740.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="82.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="25.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="170.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="184.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="102.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.0" minWidth="10.0" prefWidth="52.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="81.0" minWidth="0.0" prefWidth="44.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reporte Cobol" GridPane.columnIndex="2">
+                        <font>
+                            <Font name="Courier New" size="13.0" />
+                        </font>
+                    </Text>
+                    <TextField fx:id="txtAbsolutePath" promptText="Nombre de archivo" GridPane.columnIndex="4">
+                        <GridPane.margin>
+                            <Insets left="4.0" right="4.0" />
+                        </GridPane.margin>
+                    </TextField>
+                    <JFXButton fx:id="btnGenerate" alignment="CENTER" onAction="#onActionGenerate" prefWidth="100.0" text="Validar" GridPane.columnIndex="5" />
+                    <JFXButton alignment="CENTER" onAction="#onActionLoadFile" prefWidth="100.0" text="Cargar TXT" GridPane.columnIndex="3" />
+                    <JFXButton onAction="#createReport" GridPane.columnIndex="7">
+                  <graphic>
+                     <MaterialDesignIconView glyphName="FILE_PDF" size="18" />
+                  </graphic></JFXButton>
+               <Hyperlink onAction="#onActionDashboard" text="Back">
+                  <GridPane.margin>
+                     <Insets left="15.0" />
+                  </GridPane.margin>
+               </Hyperlink>
+                </GridPane>
+            </AnchorPane>
+        </top>
+        <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <TableView fx:id="tableResult" layoutX="14.0" layoutY="15.0" prefHeight="321.0" prefWidth="718.0">
+                    <columns>
+                        <TableColumn prefWidth="90.0" text="JOBNAME" />
+                        <TableColumn prefWidth="219.33333587646484" text="SRB TIME" />
+                        <TableColumn prefWidth="157.33331298828125" text="TCB TIME" />
+                        <TableColumn prefWidth="158.00003051757812" text="INPUT QTIME" />
+                    </columns>
+                </TableView>
+            </AnchorPane>
+        </center>
+    </BorderPane>
+</AnchorPane>
